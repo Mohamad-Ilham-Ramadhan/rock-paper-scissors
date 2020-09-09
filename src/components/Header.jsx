@@ -8,9 +8,17 @@ import Score from "./Score";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+    alignItems: "center",
     padding: 10,
     border: `3px solid ${theme.palette.neutral.headerOutline}`,
     borderRadius: 8,
+    maxWidth: 702,
+    marginLeft: "auto",
+    marginRight: "auto",
+    [theme.breakpoints.up("md")]: {
+      padding: [16, 20],
+      borderRadius: 16,
+    },
   },
   h1: {
     textTransform: "uppercase",
@@ -18,7 +26,11 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
     fontSize: "1.35rem",
     lineHeight: "16px",
-    margin: 16,
+    marginLeft: 12,
+    [theme.breakpoints.up("md")]: {
+      fontSize: "2.5rem",
+      lineHeight: "32px",
+    },
   },
   score: {
     marginLeft: "auto",
