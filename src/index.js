@@ -10,7 +10,7 @@ import theme from "./customization";
 
 import App from "./components/App";
 
-import store from "./store";
+// import store from "./store";
 const jss = create(preset());
 
 render(

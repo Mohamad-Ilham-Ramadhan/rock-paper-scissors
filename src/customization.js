@@ -38,7 +38,8 @@ const customizedTheme = createMuiTheme({
       paperGradient,
       rockGradient,
       lizardGradient,
-      cyan,
+      // cyan,
+      main: cyan,
     },
     neutral: {
       darkText,
@@ -48,9 +49,6 @@ const customizedTheme = createMuiTheme({
     background: {
       radialGradient,
     },
-    text: {
-      primary: veryDarkBlueLMT,
-    },
   },
   overrides: {
     MuiCssBaseline: {
@@ -59,7 +57,6 @@ const customizedTheme = createMuiTheme({
         body: {
           fontFamily:
             "Barlow Semi Condensed, Roboto, Helvetica, Arial, sans-serif",
-          color: veryDarkBlueLMT,
         },
         button: {
           fontFamily: "inherit",
