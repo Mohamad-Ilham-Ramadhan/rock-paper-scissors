@@ -10,7 +10,7 @@ import theme from "./customization";
 
 import App from "./components/App";
 
-// import store from "./store";
+import store from "./store";
 const jss = create(preset());
 
 render(
@@ -18,9 +18,9 @@ render(
     <StylesProvider jss={jss}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        {/* <Provider store={store}> */}
-        <App />
-        {/* </Provider> */}
+        <Provider store={store}>
+          <App />
+        </Provider>
       </ThemeProvider>
     </StylesProvider>
   </React.StrictMode>,

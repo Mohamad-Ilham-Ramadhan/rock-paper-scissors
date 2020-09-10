@@ -65,12 +65,50 @@ const customizedTheme = createMuiTheme({
     },
   },
 });
-// customizedTheme.typography.h1 = {
-//   fontSize: "1.35rem",
-//   fontWeight: "800",
-//   [customizedTheme.breakpoints.up("md")]: {
-//     fontSize: "1.35rem",
-//   },
-// };
+customizedTheme.overrides.MuiCssBaseline = {
+  "@global": {
+    ".option": {
+      border: 0,
+      width: 132,
+      height: 132,
+      borderRadius: "50%",
+      background: "#3a84e3",
+      borderBottom: "5px solid #1351a0",
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      "&:hover": {
+        cursor: "pointer",
+      },
+      "& div": {
+        width: 100,
+        height: 100,
+        background: "hsla(230, 10%, 95%, 1)",
+        borderRadius: "50%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        borderTop: "5px solid hsla(230, 10%, 83%, 1)",
+      },
+      "& img": {
+        width: 43,
+      },
+      [customizedTheme.breakpoints.up("md")]: {
+        width: 200,
+        height: 200,
+        borderBottomWidth: "8px !important",
+
+        "& div": {
+          width: 150,
+          height: 150,
+          borderTop: "8px solid hsla(230, 10%, 83%, 1)",
+        },
+        "& img": {
+          width: 65,
+        },
+      },
+    },
+  },
+};
 
 export default customizedTheme;
