@@ -29,7 +29,7 @@ const barlowSemiCondensed700 = {
   fontStyle: "normal",
   fontWeight: 700,
   src: `url('${barlowSemiCondensed700Eot}'),
-  local('Barlow Semi Condensed SemiBold'), local('BarlowSemiCondensed-SemiBold'),
+  local('Barlow Semi Condensed Bold'), local('BarlowSemiCondensed-Bold'),
         url('${barlowSemiCondensed700Eot}?#iefix') format('embedded-opentype'),
         url('${barlowSemiCondensed700Woff2}') format('woff2'),
         url('${barlowSemiCondensed700Woff}') format('woff'),

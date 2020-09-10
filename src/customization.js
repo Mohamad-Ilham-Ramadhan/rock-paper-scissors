@@ -50,23 +50,16 @@ const customizedTheme = createMuiTheme({
       radialGradient,
     },
   },
-  overrides: {
-    MuiCssBaseline: {
-      "@global": {
-        "@font-face": [barlowSemiCondensed600, barlowSemiCondensed700],
-        body: {
-          fontFamily:
-            "Barlow Semi Condensed, Roboto, Helvetica, Arial, sans-serif",
-        },
-        button: {
-          fontFamily: "inherit",
-        },
-      },
-    },
-  },
 });
 customizedTheme.overrides.MuiCssBaseline = {
   "@global": {
+    "@font-face": [barlowSemiCondensed600, barlowSemiCondensed700],
+    body: {
+      fontFamily: "Barlow Semi Condensed, Roboto, Helvetica, Arial, sans-serif",
+    },
+    button: {
+      fontFamily: "inherit",
+    },
     ".option": {
       border: 0,
       width: 132,
