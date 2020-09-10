@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("md")]: {
       width: 200,
       height: 200,
-      borderBottom: "8px solid hsla(230, 10%, 83%, 1)",
+      borderBottomWidth: "8px !important",
 
       "& div": {
         width: 150,
