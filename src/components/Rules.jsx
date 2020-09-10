@@ -14,6 +14,11 @@ import imgRules from "../images/image-rules.svg";
 const useStyles = makeStyles((theme) => ({
   root: {
     textAlign: "center",
+    paddingBottom: 56,
+    [theme.breakpoints.up("md")]: {
+      textAlign: "right",
+      paddingRight: 32,
+    },
   },
   button: {
     color: "white",
@@ -26,6 +31,10 @@ const useStyles = makeStyles((theme) => ({
   dialog: {
     "& .MuiDialog-paper": {
       borderRadius: 8,
+    },
+    "& .MuiDialogTitle-root": {
+      paddingLeft: 32,
+      paddingRight: 32,
     },
     "& .MuiDialogTitle-root h2": {
       textTransform: "uppercase",
@@ -43,9 +52,21 @@ const useStyles = makeStyles((theme) => ({
           fontSize: "1.75rem",
         },
       },
+      [theme.breakpoints.up("md")]: {
+        fontSize: "2rem",
+        "& button": {
+          "& svg": {
+            fontSize: "2rem !important",
+          },
+        },
+      },
     },
     "& .MuiDialogContent-root": {
       paddingBottom: 24,
+      [theme.breakpoints.up("md")]: {
+        paddingLeft: 48,
+        paddingRight: 48,
+      },
     },
 
     "& img": {

@@ -17,9 +17,11 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: 32,
     paddingLeft: 32,
     paddingRight: 32,
-    paddingBottom: 60,
+    marginBottom: 132,
+
     [theme.breakpoints.up("md")]: {
       paddingTop: 48,
+      marginBottom: 0,
     },
   },
   header: {
@@ -28,9 +30,7 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: 60,
     },
   },
-  options: {
-    marginBottom: 132,
-  },
+  options: {},
 }));
 
 export default function App() {
@@ -40,8 +40,8 @@ export default function App() {
       <Container className={styles.container}>
         <Header className={styles.header} />
         <Options className={styles.options} />
-        <Rules />
       </Container>
+      <Rules />
     </>
   );
 }
