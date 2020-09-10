@@ -1,4 +1,4 @@
-import { createMuiTheme, lighten } from "@material-ui/core/styles";
+import { createMuiTheme } from "@material-ui/core/styles";
 import { barlowSemiCondensed600, barlowSemiCondensed700 } from "./fonts";
 
 // <== Colors ==>

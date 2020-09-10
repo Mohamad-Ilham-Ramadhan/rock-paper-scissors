@@ -5,6 +5,7 @@ import Container from "@material-ui/core/Container";
 
 import Header from "./Header";
 import Options from "./Options";
+import Rules from "./Rules";
 
 const useStyles = makeStyles((theme) => ({
   "@global": {
@@ -16,12 +17,19 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: 32,
     paddingLeft: 32,
     paddingRight: 32,
+    paddingBottom: 60,
+    [theme.breakpoints.up("md")]: {
+      paddingTop: 48,
+    },
   },
   header: {
     marginBottom: 100,
     [theme.breakpoints.up("md")]: {
       marginBottom: 60,
     },
+  },
+  options: {
+    marginBottom: 132,
   },
 }));
 
@@ -31,7 +39,8 @@ export default function App() {
     <>
       <Container className={styles.container}>
         <Header className={styles.header} />
-        <Options />
+        <Options className={styles.options} />
+        <Rules />
       </Container>
     </>
   );

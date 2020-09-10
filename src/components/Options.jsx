@@ -69,14 +69,14 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     backgroundImage:
       "linear-gradient(to top, hsl(230, 89%, 62%), hsl(230, 89%, 65%))",
-    borderBottomColor: "hsl(230, 89%, 47%)",
+    borderBottom: "5px solid hsl(230, 89%, 47%)",
     position: "absolute",
     left: 0,
   },
   scissors: {
     backgroundImage:
       "linear-gradient(to top, hsl(39, 89%, 49%), hsl(40, 84%, 53%))",
-    borderBottomColor: "hsl(39, 89%, 34%)",
+    borderBottom: "5px solid hsl(39, 89%, 34%)",
     position: "absolute",
     right: 0,
     "& img": {
@@ -91,7 +91,7 @@ const useStyles = makeStyles((theme) => ({
   rock: {
     backgroundImage:
       "linear-gradient(to top, hsl(349, 71%, 52%), hsl(349, 70%, 56%))",
-    borderBottomColor: "hsl(349, 71%, 37%)",
+    borderBottom: "5px solid hsl(349, 71%, 37%)",
     position: "absolute",
     bottom: 0,
     left: "50%",
