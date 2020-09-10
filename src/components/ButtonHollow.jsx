@@ -6,6 +6,7 @@ const useStyles = makeStyles((theme) => ({
   hollow: {
     backgroundColor: "transparent",
     borderBottom: "none",
+    boxShadow: "none",
     "& div": {
       backgroundColor: "hsla(0, 0%, 0%, .15)",
       borderTop: "none",

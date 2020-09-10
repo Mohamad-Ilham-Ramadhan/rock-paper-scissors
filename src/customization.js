@@ -70,6 +70,8 @@ customizedTheme.overrides.MuiCssBaseline = {
       display: "inline-flex",
       alignItems: "center",
       justifyContent: "center",
+      boxShadow:
+        "0px 1px 2px -1px rgba(0,0,0,0.4), 0px 2px 4px 0px rgba(0,0,0,0.58)",
       "&:hover": {
         cursor: "pointer",
       },

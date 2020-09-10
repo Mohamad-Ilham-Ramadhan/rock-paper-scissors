@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Score({ className }) {
   const styles = useStyles();
   return (
-    <Paper className={clsx(className, styles.root)}>
+    <Paper className={clsx(className, styles.root)} elevation={4}>
       <span className={styles.label}>score</span>
       <span className={styles.score}>12</span>
     </Paper>
