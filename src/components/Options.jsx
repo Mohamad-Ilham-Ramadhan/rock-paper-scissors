@@ -12,12 +12,18 @@ const useStyles = makeStyles((theme) => ({
     width: 311,
     height: 288,
     position: "relative",
+    marginLeft: "auto",
+    marginRight: "auto",
+    [theme.breakpoints.up("md")]: {
+      width: 480,
+      height: 440,
+    },
   },
   bgTriangle: {
     position: "absolute",
     left: "50%",
     top: "50%",
-    transform: "translate(-50%, -50%)",
+    transform: "translate(-50%, -44%)",
     width: "65%",
     zIndex: -2,
   },
@@ -35,38 +41,57 @@ const useStyles = makeStyles((theme) => ({
     "& div": {
       width: 100,
       height: 100,
-      background: "hsl(0, 0%, 95%)",
+      background: "hsla(230, 10%, 95%, 1)",
       borderRadius: "50%",
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      borderTop: "5px solid hsl(0, 0%, 80%)",
+      borderTop: "5px solid hsla(230, 10%, 83%, 1)",
     },
     "& img": {
       width: 43,
+    },
+    [theme.breakpoints.up("md")]: {
+      width: 200,
+      height: 200,
+      borderBottom: "8px solid hsla(230, 10%, 83%, 1)",
+
+      "& div": {
+        width: 150,
+        height: 150,
+        borderTop: "8px solid hsla(230, 10%, 83%, 1)",
+      },
+      "& img": {
+        width: 65,
+      },
     },
   },
   paper: {
     backgroundImage:
       "linear-gradient(to top, hsl(230, 89%, 62%), hsl(230, 89%, 65%))",
-    borderBottom: "5px solid hsl(230, 89%, 47%)",
+    borderBottomColor: "hsl(230, 89%, 47%)",
     position: "absolute",
     left: 0,
   },
   scissors: {
     backgroundImage:
       "linear-gradient(to top, hsl(39, 89%, 49%), hsl(40, 84%, 53%))",
-    borderBottom: "5px solid hsl(39, 89%, 34%)",
+    borderBottomColor: "hsl(39, 89%, 34%)",
     position: "absolute",
     right: 0,
     "& img": {
       width: 48,
     },
+    [theme.breakpoints.up("md")]: {
+      "& img": {
+        width: 70,
+      },
+    },
   },
   rock: {
     backgroundImage:
       "linear-gradient(to top, hsl(349, 71%, 52%), hsl(349, 70%, 56%))",
-    borderBottom: "5px solid hsl(349, 71%, 37%)",
+    borderBottomColor: "hsl(349, 71%, 37%)",
     position: "absolute",
     bottom: 0,
     left: "50%",

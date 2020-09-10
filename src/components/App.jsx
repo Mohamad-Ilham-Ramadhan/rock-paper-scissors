@@ -19,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
   },
   header: {
     marginBottom: 100,
+    [theme.breakpoints.up("md")]: {
+      marginBottom: 60,
+    },
   },
 }));
 
