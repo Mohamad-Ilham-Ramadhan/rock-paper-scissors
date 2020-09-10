@@ -12,10 +12,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ButtonPaper({ className }) {
+export default function ButtonPaper({ className, onClick }) {
   const styles = useStyles();
   return (
-    <button className={clsx("option", className, styles.paper)}>
+    <button
+      onClick={onClick}
+      className={clsx("option", className, styles.paper)}
+    >
       <div>
         <img src={iconPaper} alt="" />
       </div>

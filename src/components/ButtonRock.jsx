@@ -12,10 +12,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ButtonRock({ className }) {
+export default function ButtonRock({ className, onClick }) {
   const styles = useStyles();
   return (
-    <button className={clsx(className, "option", styles.rock)}>
+    <button
+      onClick={onClick}
+      className={clsx(className, "option", styles.rock)}
+    >
       <div>
         <img src={iconRock} alt="" />
       </div>

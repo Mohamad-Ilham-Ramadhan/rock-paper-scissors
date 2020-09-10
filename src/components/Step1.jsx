@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -7,7 +8,9 @@ import ButtonScissors from "./ButtonScissors";
 import ButtonRock from "./ButtonRock";
 
 import bgTriangle from "../images/bg-triangle.svg";
-import iconRock from "../images/icon-rock.svg";
+
+// actions:
+import nextStep from "../actions/nextStep";
 
 const useStyles = makeStyles((theme) => ({
   bgTriangle: {
@@ -34,16 +37,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Step1() {
+function Step1({ nextStep }) {
   const styles = useStyles();
   return (
     <>
-      <ButtonPaper className={styles.paper} />
+      <ButtonPaper onClick={nextStep} className={styles.paper} />
 
-      <ButtonScissors className={styles.scissors} />
+      <ButtonScissors onClick={nextStep} className={styles.scissors} />
 
-      <ButtonRock className={styles.rock} />
+      <ButtonRock onClick={nextStep} className={styles.rock} />
       <img src={bgTriangle} className={styles.bgTriangle} alt="" />
     </>
   );
 }
+function mapDispatch(dispatch) {
+  return {
+    nextStep: () => dispatch(nextStep()),
+  };
+}
+export default connect(null, mapDispatch)(Step1);
