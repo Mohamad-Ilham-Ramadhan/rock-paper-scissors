@@ -13,6 +13,17 @@ import bgTriangle from "../images/bg-triangle.svg";
 import nextStep from "../actions/nextStep";
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    width: 311,
+    height: 288,
+    position: "relative",
+    marginLeft: "auto",
+    marginRight: "auto",
+    [theme.breakpoints.up("md")]: {
+      width: 480,
+      height: 440,
+    },
+  },
   bgTriangle: {
     position: "absolute",
     left: "50%",
@@ -37,17 +48,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Step1({ nextStep }) {
+function Step1({ className, nextStep }) {
   const styles = useStyles();
   return (
-    <>
+    <div className={clsx(styles.root, className)}>
       <ButtonPaper onClick={nextStep} className={styles.paper} />
 
       <ButtonScissors onClick={nextStep} className={styles.scissors} />
 
       <ButtonRock onClick={nextStep} className={styles.rock} />
       <img src={bgTriangle} className={styles.bgTriangle} alt="" />
-    </>
+    </div>
   );
 }
 function mapDispatch(dispatch) {

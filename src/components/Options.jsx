@@ -11,30 +11,18 @@ import nextStep from "../actions/nextStep";
 import resetStep from "../actions/resetStep";
 import pickOption from "../actions/pickOption";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: 311,
-    height: 288,
-    position: "relative",
-    marginLeft: "auto",
-    marginRight: "auto",
-    [theme.breakpoints.up("md")]: {
-      width: 480,
-      height: 440,
-    },
-  },
-}));
+const useStyles = makeStyles((theme) => ({}));
 
 function Options({ className, step, option, nextStep, resetStep, pickOption }) {
   const styles = useStyles();
   console.log(step);
   return (
-    <div className={clsx(styles.root, className)}>
-      {step == 1 && <Step2 />}
+    <>
+      {step == 1 && <Step1 />}
       {step == 2 && <Step2 nextStep={nextStep} />}
       {step == 3 && <Step3 nextStep={nextStep} />}
       {step == 4 && <Step4 resetStep={resetStep} />}
-    </div>
+    </>
   );
 }
 

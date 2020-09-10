@@ -12,6 +12,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexWrap: "wrap",
+    marginLeft: "auto",
+    marginRight: "auto",
+    [theme.breakpoints.up("md")]: {
+      width: 720,
+      flexWrap: "nowrap",
+    },
   },
   user: {
     textAlign: "center",
@@ -24,6 +30,30 @@ const useStyles = makeStyles((theme) => ({
     "& p": {
       fontSize: ".9rem",
       fontWeight: 700,
+    },
+    [theme.breakpoints.up("md")]: {
+      display: "flex",
+      justifyContent: "center",
+      flexWrap: "wrap",
+      "& button": {
+        width: 290,
+        height: 290,
+        order: 2,
+        "& div": {
+          width: 220,
+          height: 220,
+        },
+        "& img": {
+          width: 90,
+        },
+      },
+      "& p": {
+        width: "100%",
+        order: 1,
+        fontSize: "1.5rem",
+        marginBottom: 56,
+        letterSpacing: "3px",
+      },
     },
   },
   house: {
@@ -39,12 +69,29 @@ const useStyles = makeStyles((theme) => ({
       fontSize: ".9rem",
       fontWeight: 700,
     },
-  },
-  label: {
-    display: "flex",
-    width: "100%",
-    "& p:last-child": {
-      marginLeft: "auto",
+    [theme.breakpoints.up("md")]: {
+      display: "flex",
+      justifyContent: "center",
+      flexWrap: "wrap",
+      "& button": {
+        width: 290,
+        height: 290,
+        order: 2,
+        "& div": {
+          width: 220,
+          height: 220,
+        },
+        "& img": {
+          width: 90,
+        },
+      },
+      "& p": {
+        width: "100%",
+        order: 1,
+        fontSize: "1.5rem",
+        marginBottom: 56,
+        letterSpacing: "3px",
+      },
     },
   },
 }));
