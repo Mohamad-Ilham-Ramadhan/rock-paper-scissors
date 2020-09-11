@@ -11,6 +11,10 @@ const useStyles = makeStyles((theme) => ({
   "@global": {
     body: {
       background: `linear-gradient( hsl(214, 47%, 23%), hsl(237, 49%, 15%))`,
+      backgroundRepeat: "no-repeat",
+    },
+    "#root": {
+      overflow: "hidden",
     },
   },
   container: {

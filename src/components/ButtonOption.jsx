@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    position: "relative",
     border: 0,
     width: 132,
     height: 132,
@@ -55,24 +56,43 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "hsla(0, 0%, 90%, .0)",
     },
   },
+  "@keyframes pulse-md": {
+    from: {
+      backgroundColor: "hsla(0, 0%, 90%, .1)",
+    },
+    to: {
+      transform: "scale(2.5)",
+      backgroundColor: "hsla(0, 0%, 90%, .0)",
+    },
+  },
   pulse: {
     zIndex: -10,
-    width: 132,
-    height: 132,
+    width: "100%",
+    height: "100%",
     borderRadius: "100%",
     position: "absolute",
+    // backgroundColor: "hsla(0, 0%, 90%, .1)", // temp
   },
   pulse1: {
     extend: "pulse",
     animation: "$pulse 1.5s infinite",
+    [theme.breakpoints.up("md")]: {
+      animation: "$pulse-md 1.5s infinite",
+    },
   },
   pulse2: {
     extend: "pulse",
     animation: "$pulse 1.5s infinite .5s",
+    [theme.breakpoints.up("md")]: {
+      animation: "$pulse-md 1.5s infinite .5s",
+    },
   },
   pulse3: {
     extend: "pulse",
     animation: "$pulse 1.5s infinite 1s",
+    [theme.breakpoints.up("md")]: {
+      animation: "$pulse-md 1.5s infinite 1s",
+    },
   },
 }));
 

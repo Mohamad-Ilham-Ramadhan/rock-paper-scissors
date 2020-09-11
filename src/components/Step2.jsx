@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
         "& button": {
           width: 290,
           height: 290,
-          "& div": {
+          "& .inner": {
             width: 220,
             height: 220,
           },
@@ -99,7 +99,7 @@ const useStyles = makeStyles((theme) => ({
         "& button": {
           width: 290,
           height: 290,
-          "& div": {
+          "& .inner": {
             width: 220,
             height: 220,
           },
