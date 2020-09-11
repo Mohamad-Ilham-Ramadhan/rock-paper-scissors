@@ -1,14 +1,4 @@
-import React from "react";
-import { connect } from "react-redux";
-import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
-import Paper from "@material-ui/core/Paper";
-import ButtonBase from "@material-ui/core/ButtonBase";
-import ButtonPaper from "./ButtonPaper";
-import ButtonScissors from "./ButtonScissors";
-import ButtonRock from "./ButtonRock";
-import ButtonHollow from "./ButtonHollow";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -151,38 +141,4 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Step2({ step, nextStep }) {
-  const styles = useStyles();
-  return (
-    <div className={clsx(styles.root, step == 4 && "step4")}>
-      <div className={styles.user}>
-        <ButtonScissors onClick={nextStep} />
-        <Typography>You picked</Typography>
-      </div>
-
-      <div
-        className={styles.final}
-        style={{ visibility: step == 4 ? "unset" : "hidden" }}
-      >
-        <Typography variant="h1">You lose</Typography>
-        <ButtonBase>
-          <Paper>play again</Paper>
-        </ButtonBase>
-      </div>
-
-      <div className={styles.house}>
-        {step == 2 && <ButtonHollow />}
-        {[3, 4].includes(step) && (
-          <ButtonRock isPulse={step == 4 ? true : false} />
-        )}
-        <Typography>The house picked</Typography>
-      </div>
-    </div>
-  );
-}
-function mapState(state) {
-  return {
-    step: state.step,
-  };
-}
-export default connect(mapState)(Step2);
+export default useStyles;

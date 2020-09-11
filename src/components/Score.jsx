@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
@@ -40,12 +41,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Score({ className }) {
+function Score({ className, score }) {
   const styles = useStyles();
+  console.log(`score: ${score}`);
   return (
     <Paper className={clsx(className, styles.root)} elevation={4}>
       <span className={styles.label}>score</span>
-      <span className={styles.score}>12</span>
+      <span className={styles.score}>{score}</span>
     </Paper>
   );
 }
+
+function mapState(state) {
+  return {
+    score: state.score,
+  };
+}
+export default connect(mapState)(Score);

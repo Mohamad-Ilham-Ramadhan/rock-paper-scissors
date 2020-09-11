@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
@@ -12,6 +12,7 @@ import bgTriangle from "../images/bg-triangle.svg";
 
 // actions:
 import nextStep from "../actions/nextStep";
+import pickUserOption from "../actions/pickUserOption";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,18 +47,40 @@ const useStyles = makeStyles((theme) => ({
     bottom: 86,
     left: "50%",
     transform: "translateX(-50%)",
+    [theme.breakpoints.up("md")]: {
+      bottom: 0,
+    },
   },
 }));
 
-function Step1({ className, nextStep }) {
+function Step1({ className, nextStep, pickUserOption }) {
   const styles = useStyles();
+
   return (
     <div className={clsx(styles.root, className)}>
-      <ButtonPaper onClick={nextStep} className={styles.paper} />
+      <ButtonPaper
+        onClick={() => {
+          nextStep();
+          pickUserOption("paper");
+        }}
+        className={styles.paper}
+      />
 
-      <ButtonScissors onClick={nextStep} className={styles.scissors} />
+      <ButtonScissors
+        onClick={() => {
+          nextStep();
+          pickUserOption("scissors");
+        }}
+        className={styles.scissors}
+      />
 
-      <ButtonRock onClick={nextStep} className={styles.rock} />
+      <ButtonRock
+        onClick={() => {
+          nextStep();
+          pickUserOption("rock");
+        }}
+        className={styles.rock}
+      />
       <img src={bgTriangle} className={styles.bgTriangle} alt="" />
     </div>
   );
@@ -65,6 +88,7 @@ function Step1({ className, nextStep }) {
 function mapDispatch(dispatch) {
   return {
     nextStep: () => dispatch(nextStep()),
+    pickUserOption: (option) => dispatch(pickUserOption(option)),
   };
 }
 export default connect(null, mapDispatch)(Step1);

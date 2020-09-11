@@ -1,47 +1,61 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { CSSTransition, SwitchTransition } from "react-transition-group";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Step1 from "./Step1";
-import Step2 from "./Step2";
+import Step234 from "./Step234";
 
 // actions:
 import nextStep from "../actions/nextStep";
 import resetStep from "../actions/resetStep";
-import pickOption from "../actions/pickOption";
+import pickUserOption from "../actions/pickUserOption";
 
-const useStyles = makeStyles((theme) => ({}));
+const useStyles = makeStyles((theme) => ({
+  step1: {
+    "&-enter": {
+      opacity: 0,
+      transform: "scale(0.9)",
+    },
+    "&-enter-active": {
+      opacity: 1,
+      transform: "translateX(0)",
+      transition: "opacity 300ms, transform 300ms",
+    },
+    "&-exit": {
+      opacity: 1,
+    },
+    "&-exit-active": {
+      opacity: 0,
+      transform: "scale(0.9)",
+      transition: "opacity 300ms, transform 300ms",
+    },
+  },
+}));
 
 function Options({ className, step, option, nextStep, resetStep, pickOption }) {
   const styles = useStyles();
   console.log(step);
   return (
     <>
-      {step == 1 && <Step1 />}
-      {[2, 3, 4].includes(step) && <Step2 nextStep={nextStep} />}
-      {/* {step == 3 && <Step3 nextStep={nextStep} />}
-      {step == 4 && <Step4 resetStep={resetStep} />} */}
+      {/* <SwitchTransition>
+        <CSSTransition
+          key={step}
+          addEndListener={(node, done) =>
+            node.addEventListener("transitionend", done, false)
+          }
+          timeout={300}
+          classNames={styles.step1}
+          unmountOnExit
+        > */}
+      {step == 1 ? <Step1 /> : <Step234 nextStep={nextStep} />}
+      {/* </CSSTransition>
+      </SwitchTransition> */}
     </>
   );
 }
 
-function Step3({ nextStep }) {
-  useEffect(() => {
-    setTimeout(() => {
-      nextStep();
-    }, 1500);
-  }, []);
-  return <div>Step 3</div>;
-}
-function Step4({ resetStep }) {
-  useEffect(() => {
-    setTimeout(() => {
-      resetStep();
-    }, 1500);
-  }, []);
-  return <div>Step 4</div>;
-}
 function mapState(state) {
   return {
     option: state.option,
