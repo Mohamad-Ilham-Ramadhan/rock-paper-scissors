@@ -2,6 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 
+import ButtonOption from "./ButtonOption";
 import iconRock from "../images/icon-rock.svg";
 
 const useStyles = makeStyles((theme) => ({
@@ -15,13 +16,6 @@ const useStyles = makeStyles((theme) => ({
 export default function ButtonRock({ className, onClick }) {
   const styles = useStyles();
   return (
-    <button
-      onClick={onClick}
-      className={clsx(className, "option", styles.rock)}
-    >
-      <div>
-        <img src={iconRock} alt="" />
-      </div>
-    </button>
+    <ButtonOption img={iconRock} className={styles.rock} onClick={onClick} />
   );
 }

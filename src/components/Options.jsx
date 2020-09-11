@@ -19,9 +19,9 @@ function Options({ className, step, option, nextStep, resetStep, pickOption }) {
   return (
     <>
       {step == 1 && <Step1 />}
-      {step == 2 && <Step2 nextStep={nextStep} />}
-      {step == 3 && <Step3 nextStep={nextStep} />}
-      {step == 4 && <Step4 resetStep={resetStep} />}
+      {[2, 3, 4].includes(step) && <Step2 nextStep={nextStep} />}
+      {/* {step == 3 && <Step3 nextStep={nextStep} />}
+      {step == 4 && <Step4 resetStep={resetStep} />} */}
     </>
   );
 }

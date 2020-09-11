@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 
 import ButtonPaper from "./ButtonPaper";
+import ButtonOption from "./ButtonOption";
 import ButtonScissors from "./ButtonScissors";
 import ButtonRock from "./ButtonRock";
 

@@ -105,5 +105,12 @@ customizedTheme.overrides.MuiCssBaseline = {
     },
   },
 };
+customizedTheme.overrides.MuiContainer = {
+  maxWidthLg: {
+    [customizedTheme.breakpoints.up("md")]: {
+      maxWidth: 1200,
+    },
+  },
+};
 
 export default customizedTheme;
