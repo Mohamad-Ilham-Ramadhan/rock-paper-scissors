@@ -21,7 +21,7 @@ export default function ButtonHollow({ className, onClick }) {
       onClick={onClick}
       className={clsx("option", className, styles.hollow)}
     >
-      <div></div>
+      <div className="inner"></div>
     </button>
   );
 }
