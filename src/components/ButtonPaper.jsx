@@ -25,13 +25,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ButtonPaper({ className, onClick }) {
+export default function ButtonPaper({ className, ...props }) {
   const styles = useStyles();
   return (
     <ButtonOption
       img={iconPaper}
       className={clsx(className, styles.root)}
-      onClick={onClick}
+      {...props}
     />
   );
 }

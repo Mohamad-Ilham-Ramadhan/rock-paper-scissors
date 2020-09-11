@@ -48,18 +48,17 @@ const useStyles = makeStyles((theme) => ({
   },
   "@keyframes pulse": {
     from: {
-      width: 132,
-      height: 132,
       backgroundColor: "hsla(0, 0%, 90%, .1)",
     },
     to: {
-      width: 280,
-      height: 280,
+      transform: "scale(2.1)",
       backgroundColor: "hsla(0, 0%, 90%, .0)",
     },
   },
   pulse: {
     zIndex: -10,
+    width: 132,
+    height: 132,
     borderRadius: "100%",
     position: "absolute",
   },

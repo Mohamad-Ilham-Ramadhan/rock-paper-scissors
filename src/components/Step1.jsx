@@ -53,7 +53,7 @@ function Step1({ className, nextStep }) {
   const styles = useStyles();
   return (
     <div className={clsx(styles.root, className)}>
-      <ButtonPaper onClick={nextStep} className={styles.paper} />
+      <ButtonPaper onClick={nextStep} className={styles.paper} isPulse />
 
       <ButtonScissors onClick={nextStep} className={styles.scissors} />
 

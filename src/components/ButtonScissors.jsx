@@ -21,13 +21,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ButtonScissors({ className, onClick }) {
+export default function ButtonScissors({ className, ...props }) {
   const styles = useStyles();
   return (
     <ButtonOption
       img={iconScissors}
       className={clsx(className, styles.root)}
-      onClick={onClick}
+      {...props}
     />
   );
 }
