@@ -6,7 +6,7 @@ import ButtonOption from "./ButtonOption";
 import iconPaper from "../images/icon-paper.svg";
 
 const useStyles = makeStyles((theme) => ({
-  paper: {
+  root: {
     backgroundImage:
       "linear-gradient(to top, hsl(230, 89%, 62%), hsl(230, 89%, 65%))",
     borderBottom: "5px solid hsl(230, 89%, 47%)",
@@ -28,6 +28,10 @@ const useStyles = makeStyles((theme) => ({
 export default function ButtonPaper({ className, onClick }) {
   const styles = useStyles();
   return (
-    <ButtonOption img={iconPaper} className={styles.paper} onClick={onClick} />
+    <ButtonOption
+      img={iconPaper}
+      className={clsx(className, styles.root)}
+      onClick={onClick}
+    />
   );
 }

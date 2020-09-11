@@ -16,13 +16,18 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
     marginLeft: "auto",
     marginRight: "auto",
+    maxWidth: 400,
     [theme.breakpoints.up("md")]: {
-      width: 720,
+      maxWidth: 720,
       flexWrap: "nowrap",
     },
     "&.step4": {
-      width: 965,
-      flexWrap: "nowrap",
+      width: "100%",
+      flexWrap: "wrap",
+      [theme.breakpoints.up("md")]: {
+        maxWidth: 965,
+        flexWrap: "nowrap",
+      },
     },
   },
   user: {
@@ -42,16 +47,21 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: "center",
       flexWrap: "wrap",
       flex: 1, // step4
+      order: 1, // step4
       "& button": {
-        width: 290,
-        height: 290,
         order: 2,
-        "& div": {
-          width: 220,
-          height: 220,
-        },
-        "& img": {
-          width: 90,
+      },
+      [theme.breakpoints.up("lg")]: {
+        "& button": {
+          width: 290,
+          height: 290,
+          "& div": {
+            width: 220,
+            height: 220,
+          },
+          "& img": {
+            width: 90,
+          },
         },
       },
       "& p": {
@@ -81,16 +91,21 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: "center",
       flexWrap: "wrap",
       flex: 1, // step4
+      order: 3, // step4
       "& button": {
-        width: 290,
-        height: 290,
         order: 2,
-        "& div": {
-          width: 220,
-          height: 220,
-        },
-        "& img": {
-          width: 90,
+      },
+      [theme.breakpoints.up("lg")]: {
+        "& button": {
+          width: 290,
+          height: 290,
+          "& div": {
+            width: 220,
+            height: 220,
+          },
+          "& img": {
+            width: 90,
+          },
         },
       },
       "& p": {
@@ -110,6 +125,8 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    order: 3,
+    marginTop: 68,
     "& h1": {
       color: "white",
       textTransform: "uppercase",
@@ -123,6 +140,13 @@ const useStyles = makeStyles((theme) => ({
       color: "#dc3f5c",
       letterSpacing: 3,
       padding: [12, 56],
+    },
+    [theme.breakpoints.up("md")]: {
+      order: 2,
+      marginTop: 0,
+      "& .MuiPaper-root": {
+        padding: [14, 56],
+      },
     },
   },
 }));

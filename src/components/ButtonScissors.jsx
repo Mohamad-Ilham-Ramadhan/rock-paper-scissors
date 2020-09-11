@@ -6,7 +6,7 @@ import ButtonOption from "./ButtonOption";
 import iconScissors from "../images/icon-scissors.svg";
 
 const useStyles = makeStyles((theme) => ({
-  scissors: {
+  root: {
     backgroundImage:
       "linear-gradient(to top, hsl(39, 89%, 49%), hsl(40, 84%, 53%))",
     borderBottom: "5px solid hsl(39, 89%, 34%)",
@@ -26,7 +26,7 @@ export default function ButtonScissors({ className, onClick }) {
   return (
     <ButtonOption
       img={iconScissors}
-      className={styles.scissors}
+      className={clsx(className, styles.root)}
       onClick={onClick}
     />
   );

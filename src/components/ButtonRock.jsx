@@ -6,7 +6,7 @@ import ButtonOption from "./ButtonOption";
 import iconRock from "../images/icon-rock.svg";
 
 const useStyles = makeStyles((theme) => ({
-  rock: {
+  root: {
     backgroundImage:
       "linear-gradient(to top, hsl(349, 71%, 52%), hsl(349, 70%, 56%))",
     borderBottom: "5px solid hsl(349, 71%, 37%)",
@@ -16,6 +16,10 @@ const useStyles = makeStyles((theme) => ({
 export default function ButtonRock({ className, onClick }) {
   const styles = useStyles();
   return (
-    <ButtonOption img={iconRock} className={styles.rock} onClick={onClick} />
+    <ButtonOption
+      img={iconRock}
+      className={clsx(className, styles.root)}
+      onClick={onClick}
+    />
   );
 }
