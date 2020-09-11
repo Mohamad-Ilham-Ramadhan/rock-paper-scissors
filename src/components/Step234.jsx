@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import clsx from "clsx";
-import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import Dialog from "@material-ui/core/Dialog";
+import DialogTitle from "@material-ui/core/DialogTitle";
 import Paper from "@material-ui/core/Paper";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import ButtonPaper from "./ButtonPaper";
@@ -37,7 +38,17 @@ function Step2({
   decreaseScore,
 }) {
   const styles = useStyles();
+  const [open, setOpen] = useState(false);
+  function handleClose() {
+    setOpen(false);
+  }
+  function handleOpen() {
+    if (winner === "computer") {
+      setOpen(true);
+    }
+  }
   useEffect(() => {
+    handleOpen();
     const options = ["paper", "rock", "scissors"];
     if (step == 4) {
       switch (winner) {
@@ -116,6 +127,9 @@ function Step2({
         )}
         <Typography>The house picked</Typography>
       </div>
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Reyhan Guoblag!!!</DialogTitle>
+      </Dialog>
     </div>
   );
 }
