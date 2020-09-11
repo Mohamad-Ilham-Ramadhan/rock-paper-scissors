@@ -16,7 +16,7 @@ import nextStep from "../actions/nextStep";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: 311,
-    height: 288,
+    height: 369,
     position: "relative",
     marginLeft: "auto",
     marginRight: "auto",
@@ -28,8 +28,8 @@ const useStyles = makeStyles((theme) => ({
   bgTriangle: {
     position: "absolute",
     left: "50%",
-    top: "50%",
-    transform: "translate(-50%, -44%)",
+    top: 66,
+    transform: "translate(-50%, 0)",
     width: "65%",
     zIndex: -2,
   },
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   },
   rock: {
     position: "absolute",
-    bottom: 0,
+    bottom: 86,
     left: "50%",
     transform: "translateX(-50%)",
   },
@@ -53,7 +53,7 @@ function Step1({ className, nextStep }) {
   const styles = useStyles();
   return (
     <div className={clsx(styles.root, className)}>
-      <ButtonPaper onClick={nextStep} className={styles.paper} isPulse />
+      <ButtonPaper onClick={nextStep} className={styles.paper} />
 
       <ButtonScissors onClick={nextStep} className={styles.scissors} />
 

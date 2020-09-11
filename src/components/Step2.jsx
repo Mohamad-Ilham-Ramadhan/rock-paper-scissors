@@ -159,14 +159,17 @@ function Step2({ step, nextStep }) {
         <ButtonScissors onClick={nextStep} />
         <Typography>You picked</Typography>
       </div>
-      {step == 4 && (
-        <div className={styles.final}>
-          <Typography variant="h1">You lose</Typography>
-          <ButtonBase>
-            <Paper>play again</Paper>
-          </ButtonBase>
-        </div>
-      )}
+
+      <div
+        className={styles.final}
+        style={{ visibility: step == 4 ? "unset" : "hidden" }}
+      >
+        <Typography variant="h1">You lose</Typography>
+        <ButtonBase>
+          <Paper>play again</Paper>
+        </ButtonBase>
+      </div>
+
       <div className={styles.house}>
         {step == 2 && <ButtonHollow />}
         {[3, 4].includes(step) && (
