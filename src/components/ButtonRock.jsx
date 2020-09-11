@@ -13,13 +13,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ButtonRock({ className, onClick }) {
+export default function ButtonRock({ className, ...props }) {
   const styles = useStyles();
   return (
     <ButtonOption
       img={iconRock}
       className={clsx(className, styles.root)}
-      onClick={onClick}
+      {...props}
     />
   );
 }

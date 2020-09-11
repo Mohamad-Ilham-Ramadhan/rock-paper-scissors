@@ -169,7 +169,9 @@ function Step2({ step, nextStep }) {
       )}
       <div className={styles.house}>
         {step == 2 && <ButtonHollow />}
-        {[3, 4].includes(step) && <ButtonRock />}
+        {[3, 4].includes(step) && (
+          <ButtonRock isPulse={step == 4 ? true : false} />
+        )}
         <Typography>The house picked</Typography>
       </div>
     </div>
