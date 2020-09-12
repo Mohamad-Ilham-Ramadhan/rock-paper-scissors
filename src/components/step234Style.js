@@ -139,6 +139,34 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  optionTrans: {
+    // step2 and 3 animation
+    "&-appear": {
+      opacity: 0,
+      transform: "scale(.5)",
+    },
+    "&-appear-active": {
+      opacity: 1,
+      transform: "scale(1)",
+      transition: "opacity 300ms, transform 300ms",
+    },
+    "&-enter": {
+      opacity: 0,
+      transform: "scale(.5)",
+    },
+    "&-enter-active": {
+      opacity: 1,
+      transform: "scale(1)",
+      transition: "opacity 300ms, transform 300ms",
+    },
+    "&-exit": {
+      opacity: 1,
+    },
+    "&-exit-active": {
+      opacity: 0,
+      transition: "opacity 200ms",
+    },
+  },
 }));
 
 export default useStyles;

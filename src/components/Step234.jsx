@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
 import clsx from "clsx";
 import Typography from "@material-ui/core/Typography";
@@ -38,17 +39,7 @@ function Step2({
   decreaseScore,
 }) {
   const styles = useStyles();
-  const [open, setOpen] = useState(false);
-  function handleClose() {
-    setOpen(false);
-  }
-  function handleOpen() {
-    if (winner === "computer") {
-      setOpen(true);
-    }
-  }
   useEffect(() => {
-    handleOpen();
     const options = ["paper", "rock", "scissors"];
     if (step == 4) {
       switch (winner) {
@@ -74,11 +65,23 @@ function Step2({
   return (
     <div className={clsx(styles.root, step == 4 && "step4")}>
       <div className={styles.user}>
-        {userOption == "paper" && <ButtonPaper isPulse={winner == "user"} />}
-        {userOption == "scissors" && (
-          <ButtonScissors isPulse={winner == "user"} />
-        )}
-        {userOption == "rock" && <ButtonRock isPulse={winner == "user"} />}
+        <CSSTransition
+          appear={true}
+          in={[2, 3, 4].includes(step)}
+          timeout={300}
+          classNames={styles.optionTrans}
+          unmountOnExit
+        >
+          <>
+            {userOption == "paper" && (
+              <ButtonPaper isPulse={winner == "user"} />
+            )}
+            {userOption == "scissors" && (
+              <ButtonScissors isPulse={winner == "user"} />
+            )}
+            {userOption == "rock" && <ButtonRock isPulse={winner == "user"} />}
+          </>
+        </CSSTransition>
         <Typography>You picked</Typography>
       </div>
 
@@ -103,7 +106,13 @@ function Step2({
 
       <div className={styles.house}>
         {step == 2 && <ButtonHollow />}
-        {[3, 4].includes(step) && (
+        <CSSTransition
+          appear={true}
+          in={[3, 4].includes(step)}
+          timeout={300}
+          classNames={styles.optionTrans}
+          unmountOnExit
+        >
           <>
             {computerOption == "paper" && (
               <ButtonPaper
@@ -124,12 +133,10 @@ function Step2({
               />
             )}
           </>
-        )}
+        </CSSTransition>
+
         <Typography>The house picked</Typography>
       </div>
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Reyhan Guoblag!!!</DialogTitle>
-      </Dialog>
     </div>
   );
 }
