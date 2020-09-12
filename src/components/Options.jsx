@@ -36,24 +36,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Options({ className, step, option, nextStep, resetStep, pickOption }) {
   const styles = useStyles();
-  console.log(step);
-  return (
-    <>
-      {/* <SwitchTransition>
-        <CSSTransition
-          key={step}
-          addEndListener={(node, done) =>
-            node.addEventListener("transitionend", done, false)
-          }
-          timeout={300}
-          classNames={styles.step1}
-          unmountOnExit
-        > */}
-      {step == 1 ? <Step1 /> : <Step234 nextStep={nextStep} />}
-      {/* </CSSTransition>
-      </SwitchTransition> */}
-    </>
-  );
+  return <>{step == 1 ? <Step1 /> : <Step234 nextStep={nextStep} />}</>;
 }
 
 function mapState(state) {

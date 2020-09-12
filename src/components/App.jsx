@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 
 import Container from "@material-ui/core/Container";
@@ -6,6 +7,10 @@ import Container from "@material-ui/core/Container";
 import Header from "./Header";
 import Options from "./Options";
 import Rules from "./Rules";
+
+// actions
+import fetchScore from "../actions/fetchScore";
+import { useForkRef } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   "@global": {
@@ -37,8 +42,11 @@ const useStyles = makeStyles((theme) => ({
   options: {},
 }));
 
-export default function App() {
+function App({ fetchScore }) {
   const styles = useStyles();
+  useEffect(() => {
+    fetchScore();
+  });
   return (
     <>
       <Container className={styles.container}>
@@ -49,3 +57,9 @@ export default function App() {
     </>
   );
 }
+function mapDispatch(dispatch) {
+  return {
+    fetchScore: () => dispatch(fetchScore()),
+  };
+}
+export default connect(null, mapDispatch)(App);
