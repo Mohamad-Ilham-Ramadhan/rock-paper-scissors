@@ -58,6 +58,7 @@ function Step2({
       }
       if (step == 3) {
         getTheWinner(userOption, computerOption);
+        console.log(winner);
         nextStep();
       }
     }, 1000);
@@ -85,14 +86,12 @@ function Step2({
         <Typography>You picked</Typography>
       </div>
 
-      <div
-        className={styles.final}
-        style={{ visibility: step == 4 ? "unset" : "hidden" }}
-      >
+      <div className={clsx(styles.final, step == 4 ? null : "hidden")}>
         <Typography variant="h1">
           {winner == "draw" && "Draw"}
           {winner == "user" && "You Win"}
           {winner == "computer" && "You lose"}
+          {winner == null && "No Game"}
         </Typography>
         <ButtonBase
           onClick={() => {

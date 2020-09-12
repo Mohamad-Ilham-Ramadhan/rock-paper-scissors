@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "auto",
     marginRight: "auto",
     maxWidth: 400,
+    transition: "max-width 300ms",
     [theme.breakpoints.up("md")]: {
       maxWidth: 720,
       flexWrap: "nowrap",
@@ -110,6 +111,7 @@ const useStyles = makeStyles((theme) => ({
   final: {
     // step4
     flex: 1,
+    overflow: "hidden",
     textAlign: "center",
     display: "flex",
     flexDirection: "column",
@@ -117,12 +119,15 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     order: 3,
     marginTop: 68,
+    opacity: 1,
+    transition: "opacity 300ms, transform 300ms",
     "& h1": {
       color: "white",
       textTransform: "uppercase",
       fontSize: "3.5rem",
       fontWeight: 700,
       marginBottom: 16,
+      minWidth: 300,
     },
     "& .MuiPaper-root": {
       textTransform: "uppercase",
@@ -137,6 +142,11 @@ const useStyles = makeStyles((theme) => ({
       "& .MuiPaper-root": {
         padding: [14, 56],
       },
+    },
+    "&.hidden": {
+      visibility: "hidden",
+      opacity: 0,
+      transform: "scale(0)",
     },
   },
   optionTrans: {
