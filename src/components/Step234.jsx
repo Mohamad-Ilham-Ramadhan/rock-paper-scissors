@@ -3,13 +3,10 @@ import { CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
 import clsx from "clsx";
 import Typography from "@material-ui/core/Typography";
-import Dialog from "@material-ui/core/Dialog";
-import DialogTitle from "@material-ui/core/DialogTitle";
 import Paper from "@material-ui/core/Paper";
-import ButtonBase from "@material-ui/core/ButtonBase";
+import Button from "@material-ui/core/Button";
 import ButtonPaper from "./ButtonPaper";
 import ButtonScissors from "./ButtonScissors";
-import ButtonRock from "./ButtonRock";
 import ButtonHollow from "./ButtonHollow";
 
 // actions:
@@ -75,12 +72,14 @@ function Step2({
         >
           <>
             {userOption == "paper" && (
-              <ButtonPaper isPulse={winner == "user"} />
+              <ButtonPaper isPulse={winner == "user"} tabIndex={-1} />
             )}
             {userOption == "scissors" && (
-              <ButtonScissors isPulse={winner == "user"} />
+              <ButtonScissors isPulse={winner == "user"} tabIndex={-1} />
             )}
-            {userOption == "rock" && <ButtonRock isPulse={winner == "user"} />}
+            {userOption == "rock" && (
+              <ButtonRock isPulse={winner == "user"} tabIndex={-1} />
+            )}
           </>
         </CSSTransition>
         <Typography>You picked</Typography>
@@ -93,14 +92,14 @@ function Step2({
           {winner == "computer" && "You lose"}
           {winner == null && "No Game"}
         </Typography>
-        <ButtonBase
+        <Button
           onClick={() => {
             resetStep();
             resetWinner();
           }}
         >
           <Paper>play again</Paper>
-        </ButtonBase>
+        </Button>
       </div>
 
       <div className={styles.house}>
@@ -116,19 +115,19 @@ function Step2({
             {computerOption == "paper" && (
               <ButtonPaper
                 isPulse={winner == "computer" ? true : false}
-                onClick={nextStep}
+                tabIndex={-1}
               />
             )}
             {computerOption == "scissors" && (
               <ButtonScissors
                 isPulse={winner == "computer" ? true : false}
-                onClick={nextStep}
+                tabIndex={-1}
               />
             )}
             {computerOption == "rock" && (
               <ButtonRock
                 isPulse={winner == "computer" ? true : false}
-                onClick={nextStep}
+                tabIndex={-1}
               />
             )}
           </>

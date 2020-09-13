@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
+import ButtonBase from "@material-ui/core/ButtonBase";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -96,11 +98,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ButtonOption({ img, className, onClick, isPulse }) {
+export default function ButtonOption({
+  img,
+  className,
+  onClick,
+  isPulse,
+  ...props
+}) {
   const styles = useStyles();
   // const [pulse, setPulse] = useState(true);
   return (
-    <button onClick={onClick} className={clsx(styles.root, className)}>
+    <Button
+      onClick={onClick}
+      className={clsx(styles.root, className)}
+      {...props}
+    >
       <div className="inner">
         <img src={img} alt="" />
       </div>
@@ -111,6 +123,6 @@ export default function ButtonOption({ img, className, onClick, isPulse }) {
           <div className={styles.pulse3}></div>
         </>
       )}
-    </button>
+    </Button>
   );
 }
