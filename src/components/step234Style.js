@@ -111,7 +111,6 @@ const useStyles = makeStyles((theme) => ({
   final: {
     // step4
     flex: 1,
-    overflow: "hidden",
     textAlign: "center",
     display: "flex",
     flexDirection: "column",
@@ -137,6 +136,7 @@ const useStyles = makeStyles((theme) => ({
       padding: [12, 56],
     },
     [theme.breakpoints.up("md")]: {
+      overflow: "hidden",
       order: 2,
       marginTop: 0,
       "& .MuiPaper-root": {

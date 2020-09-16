@@ -12,30 +12,10 @@ import nextStep from "../actions/nextStep";
 import resetStep from "../actions/resetStep";
 import pickUserOption from "../actions/pickUserOption";
 
-const useStyles = makeStyles((theme) => ({
-  step1: {
-    "&-enter": {
-      opacity: 0,
-      transform: "scale(0.9)",
-    },
-    "&-enter-active": {
-      opacity: 1,
-      transform: "translateX(0)",
-      transition: "opacity 300ms, transform 300ms",
-    },
-    "&-exit": {
-      opacity: 1,
-    },
-    "&-exit-active": {
-      opacity: 0,
-      transform: "scale(0.9)",
-      transition: "opacity 300ms, transform 300ms",
-    },
-  },
-}));
+// const useStyles = makeStyles((theme) => ({}));
 
-function Options({ className, step, option, nextStep, resetStep, pickOption }) {
-  const styles = useStyles();
+function Options({ className, step, nextStep }) {
+  // const styles = useStyles();
   return <>{step == 1 ? <Step1 /> : <Step234 nextStep={nextStep} />}</>;
 }
 

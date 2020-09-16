@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
+import { CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 
 import ButtonPaper from "./ButtonPaper";
-import ButtonOption from "./ButtonOption";
 import ButtonScissors from "./ButtonScissors";
 import ButtonRock from "./ButtonRock";
 
@@ -51,39 +51,63 @@ const useStyles = makeStyles((theme) => ({
       bottom: 0,
     },
   },
+  step1Trans: {
+    // step2 and 3 animation
+    "&-appear": {
+      opacity: 0,
+      transform: "scale(.1) rotate(60deg)",
+    },
+    "&-appear-active": {
+      opacity: 1,
+      transform: "scale(1) rotate(0deg)",
+      transition: "opacity 500ms, transform 500ms",
+    },
+  },
 }));
 
-function Step1({ className, nextStep, pickUserOption }) {
+function Step1({ className, nextStep, step, pickUserOption }) {
   const styles = useStyles();
 
   return (
-    <div className={clsx(styles.root, className)}>
-      <ButtonPaper
-        onClick={() => {
-          nextStep();
-          pickUserOption("paper");
-        }}
-        className={styles.paper}
-      />
+    <CSSTransition
+      appear={true}
+      in={step == 1}
+      timeout={500}
+      classNames={styles.step1Trans}
+    >
+      <div className={clsx(styles.root, className)}>
+        <ButtonPaper
+          onClick={() => {
+            nextStep();
+            pickUserOption("paper");
+          }}
+          className={styles.paper}
+        />
 
-      <ButtonScissors
-        onClick={() => {
-          nextStep();
-          pickUserOption("scissors");
-        }}
-        className={styles.scissors}
-      />
+        <ButtonScissors
+          onClick={() => {
+            nextStep();
+            pickUserOption("scissors");
+          }}
+          className={styles.scissors}
+        />
 
-      <ButtonRock
-        onClick={() => {
-          nextStep();
-          pickUserOption("rock");
-        }}
-        className={styles.rock}
-      />
-      <img src={bgTriangle} className={styles.bgTriangle} alt="" />
-    </div>
+        <ButtonRock
+          onClick={() => {
+            nextStep();
+            pickUserOption("rock");
+          }}
+          className={styles.rock}
+        />
+        <img src={bgTriangle} className={styles.bgTriangle} alt="" />
+      </div>
+    </CSSTransition>
   );
+}
+function mapState(state) {
+  return {
+    step: state.step,
+  };
 }
 function mapDispatch(dispatch) {
   return {
@@ -91,4 +115,4 @@ function mapDispatch(dispatch) {
     pickUserOption: (option) => dispatch(pickUserOption(option)),
   };
 }
-export default connect(null, mapDispatch)(Step1);
+export default connect(mapState, mapDispatch)(Step1);
